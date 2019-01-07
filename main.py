@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 url = "https://isthereanydeal.com"
 r = requests.get(url)
 r.text
-print(r.content[:100])
+#print(r.content[:100])
 
 def saveHTML(html, path):
     with open(path, 'wb') as f:
@@ -22,8 +22,15 @@ html = openHTML('google_com')
 
 soup = BeautifulSoup(r.content,'html.parser')
 
-gameTitles = soup.select('div.title')
+gameTitles = soup.select('.noticeable')
 gameTitle = gameTitles[0]
 
-title = gameTitle.select_one('div.title').text.strip()
+title = gameTitle.text.strip()
 print(title)
+
+gamePrices = soup.select('.s-low')
+gamePrice = gamePrices[0]
+
+price = gamePrice.text.strip()
+print(price)
+#inspect price on website
