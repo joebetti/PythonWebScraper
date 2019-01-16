@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from time import sleep
 
 #url = 'https://www.google.com'
 url = "https://isthereanydeal.com"
